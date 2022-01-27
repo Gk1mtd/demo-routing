@@ -27,7 +27,7 @@ function App() {
               <NavLink exact activeClassName="selected" to={paths.about}>About</NavLink>
             </li>
             <li>
-              <NavLink exact activeClassName="selected" to={paths.projects}>Projects</NavLink>
+              <NavLink strict activeClassName="selected" to={paths.projects}>Projects</NavLink>
             </li>
           </ul>
         </nav>
