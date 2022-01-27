@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import paths from "./paths";
 
 function App() {
   return (
@@ -10,28 +11,28 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link exact to="/">
+              <Link exact to={paths.home}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to={paths.about}>About</Link>
             </li>
             <li>
-              <Link to="/projects">Projects</Link>
+              <Link to={paths.projects}>Projects</Link>
             </li>
           </ul>
         </nav>
       </div>
 
       <Switch>
-        <Route path="/about">
+        <Route path={paths.about}>
           <About />
         </Route>
-        <Route path="/users">
-          <Users />
+        <Route path={paths.projects}>
+          <Projects />
         </Route>
-        <Route path="/">
+        <Route path={paths.home}>
           <Home />
         </Route>
       </Switch>
@@ -40,15 +41,30 @@ function App() {
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return (
+    <div>
+      <h2>Home</h2>
+      <p>Welcome</p>
+    </div>
+  );
 }
 
 function About() {
-  return <h2>About</h2>;
+  return (
+    <div>
+      <h2>About</h2>
+      <p>This is a testpage.</p>
+    </div>
+  );
 }
 
-function Users() {
-  return <h2>Users</h2>;
+function Projects() {
+  return (
+    <div>
+      <h2>Projects</h2>
+      <p>Look, a wild project, barely alive!</p>
+    </div>
+  );
 }
 
 export default App;
