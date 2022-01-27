@@ -8,11 +8,13 @@ import {
   Link,
   useRouteMatch,
   useParams,
+  Redirect,
 } from "react-router-dom";
 import paths from "./paths";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
+  const [loggedIn, setLoggedIn] = React.useState(false)
   return (
     <Router>
       <div className="App">
@@ -31,6 +33,7 @@ function App() {
             </li>
           </ul>
         </nav>
+        <button onClick={()=> setLoggedIn(!loggedIn)}>Log Me In</button>
       </div>
 
       <Switch>
@@ -38,7 +41,8 @@ function App() {
           <About />
         </Route>
         <Route path={paths.projects}>
-          <Projects />
+          {loggedIn ? <Projects /> : <Redirect to={paths.home}/>}
+          
         </Route>
         <Route path={paths.home}>
           <Home />
